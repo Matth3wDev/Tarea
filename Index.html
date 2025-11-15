@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección Nacional - Próximos Partidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003087;
+            --secondary-color: #CE1126;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)); 
+            background-image: url('image/Estadio-Nacional.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-banner h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .match-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .match-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .personality-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .personality-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .personality-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .social-links a {
+            color: white;
+            background: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .comment-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .comment {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-futbol"></i> Selección Nacional
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#partidos">Partidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#personalidades">Personalidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comentarios">Comentarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section id="inicio" class="hero-banner">
+        <div class="container">
+            <h1>Próximos Partidos de la Selección</h1>
+            <p class="lead">Apoya a tu selección en cada encuentro</p>
+            <button class="btn btn-light btn-lg mt-3">
+                <i class="fas fa-ticket-alt"></i> Comprar Boletos
+            </button>
+        </div>
+    </section>
+
+    <!-- Próximos Partidos -->
+    <section id="partidos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Próximos Encuentros</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card match-card">
+                        <div class="match-header">
+                            <h5>ELIMINATORIAS MUNDIALISTAS</h5>
+                            <p class="mb-0">15 de Noviembre, 2025 - 20:00 hrs</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-5 text-center">
+                                    <h3>Costa Rica</h3>
+                                    <i class="fas fa-flag fa-3x text-primary"></i>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <h2>VS</h2>
+                                </div>
+                                <div class="col-5 text-center">
+                                    <h3>México</h3>
+                                    <i class="fas fa-flag fa-3x text-success"></i>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p><i class="fas fa-map-marker-alt"></i> Estadio Nacional, San José</p>
+                                <button class="btn btn-primary">Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card match-card">
+                        <div class="match-header">
+                            <h5>AMISTOSO INTERNACIONAL</h5>
+                            <p class="mb-0">19 de Noviembre, 2025 - 19:00 hrs</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-5 text-center">
+                                    <h3>Costa Rica</h3>
+                                    <i class="fas fa-flag fa-3x text-primary"></i>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <h2>VS</h2>
+                                </div>
+                                <div class="col-5 text-center">
+                                    <h3>Panamá</h3>
+                                    <i class="fas fa-flag fa-3x text-danger"></i>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p><i class="fas fa-map-marker-alt"></i> Estadio Ricardo Saprissa</p>
+                                <button class="btn btn-primary">Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personalidades -->
+    <section id="personalidades" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Personalidades del Equipo</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="personality-card">
+                        <img src="image/Herrera.png" alt="Entrenador" class="personality-img">
+                        <h4>Miguel Herrera</h4>
+                        <p class="text-muted">Director Técnico</p>
+                        <p>Experimentado entrenador con amplia trayectoria internacional</p>
+                        <div class="social-links">
+                            <a href="https://x.com/MiguelHerreraDT?lang=es"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/miguelherreradt/?hl=es-la"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/MiguelHerreraDT/?locale=es_LA"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="personality-card">
+                        <img src="image/Ugalde.webp" alt="El Goleador" class="personality-img">
+                        <h4>Manfred Ugalde</h4>
+                        <p class="text-muted"> Goleador del Equipo</p>
+                        <p>Jugador joven de la selección nacional con experiencia en Europa</p>
+                        <div class="social-links">
+                            <a href="https://x.com/tdmascrc/status/1427402665043054592"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/manfredugaldeoficial"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/p/Manfred-Ugalde-Arce-100044081981707/?locale=es_LA"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="personality-card">
+                        <img src="image/Keylor Navas.png" alt="EL CAPITAN" class="personality-img">
+                        <h4>Keylor Navas</h4>
+                        <p class="text-muted">Portero Titular</p>
+                        <p>Uno de los mejores porteros del mundo, ícono nacional</p>
+                        <div class="social-links">
+                            <a href="https://x.com/NavasKeylor"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/keylornavas1/?hl=es"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/keylornavascr/?locale=es_LA"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comentarios -->
+    <section id="comentarios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Comentarios de los Aficionados</h2>
+            <div class="comment-section">
+                <div class="comment">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" class="rounded-circle me-3" width="50" height="50" alt="Usuario">
+                        <div>
+                            <strong>Carlos Rodríguez</strong>
+                            <p class="text-muted mb-0 small">Hace 2 horas</p>
+                        </div>
+                    </div>
+                    <p>¡Vamos Sele! Este partido contra México será crucial para nuestras aspiraciones mundialistas. Confiamos en el equipo 🇨🇷⚽</p>
+                </div>
+                <div class="comment">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="rounded-circle me-3" width="50" height="50" alt="Usuario">
+                        <div>
+                            <strong>María González</strong>
+                            <p class="text-muted mb-0 small">Hace 5 horas</p>
+                        </div>
+                    </div>
+                    <p>Keylor Navas sigue siendo nuestro guardián. Con él en la portería, todo es posible. ¡A dar el 100%! 💪</p>
+                </div>
+                <div class="comment">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100" class="rounded-circle me-3" width="50" height="50" alt="Usuario">
+                        <div>
+                            <strong>José Pérez</strong>
+                            <p class="text-muted mb-0 small">Hace 1 día</p>
+                        </div>
+                    </div>
+                    <p>Ya tengo mi boleto para el partido. ¡Nos vemos en el estadio para apoyar a la Tricolor! 🎉</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary btn-lg">Dejar un Comentario</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-futbol"></i> Selección Nacional</h5>
+                    <p>Siguiendo a nuestra selección en cada paso hacia la gloria</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Calendario Completo</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Plantilla del Equipo</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Noticias</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Tienda Oficial</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> info@seleccion.com</p>
+                    <p><i class="fas fa-phone"></i> +506 1234-5678</p>
+                    <p><i class="fas fa-map-marker-alt"></i> San José, Costa Rica</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <div class="text-center">
+                <p>&copy; 2025 Selección Nacional de Fútbol. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
